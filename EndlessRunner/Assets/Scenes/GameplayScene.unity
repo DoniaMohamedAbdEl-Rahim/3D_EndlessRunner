@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 6fb44c70510b73b4fbb9643d1e7602ff, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -236,7 +236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 23.9, y: -40.535}
+  m_AnchoredPosition: {x: 23.9, y: -33}
   m_SizeDelta: {x: 89.5501, y: 88.7463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26374404
@@ -378,6 +378,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &126620651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 126620653}
+  - component: {fileID: 126620652}
+  m_Layer: 0
+  m_Name: PowerUpsSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &126620652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126620651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e51dfc0567666d4f92d346104e74a4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpsPrefab:
+  - {fileID: 6906994597809048124, guid: bbd07f13d55dcc643ac87e972c7f9712, type: 3}
+  - {fileID: 532068967209451661, guid: 3974c94dd75603445a38549df0993b93, type: 3}
+  - {fileID: 7541115056481215459, guid: add05a82bae9b9a4ba51d0d176866d14, type: 3}
+  - {fileID: 7798282306701309240, guid: c287ea882c26f574bab380c9aa65ee7e, type: 3}
+  - {fileID: 1172842269079495608, guid: 6b1f49b747d464b42aa258c756957232, type: 3}
+  player: {fileID: 1497012673}
+--- !u!4 &126620653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126620651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70.40808, y: 306.465, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &212924972
 PrefabInstance:
@@ -1088,7 +1138,7 @@ GameObject:
   - component: {fileID: 999743967}
   - component: {fileID: 999743966}
   m_Layer: 5
-  m_Name: Coins
+  m_Name: Coins_Txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1110,7 +1160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 67, y: 0}
+  m_AnchoredPosition: {x: 67, y: -2}
   m_SizeDelta: {x: 115.566284, y: 84.908}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &999743966
@@ -2522,6 +2572,26 @@ PrefabInstance:
     - target: {fileID: 5896226565536641009, guid: 71a719286b0e5ec40ba13c66ed45e419, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896226565536641009, guid: 71a719286b0e5ec40ba13c66ed45e419, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896226565536641009, guid: 71a719286b0e5ec40ba13c66ed45e419, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896226565536641009, guid: 71a719286b0e5ec40ba13c66ed45e419, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896226565536641009, guid: 71a719286b0e5ec40ba13c66ed45e419, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896226565536641009, guid: 71a719286b0e5ec40ba13c66ed45e419, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 6222043594947029968, guid: 71a719286b0e5ec40ba13c66ed45e419, type: 3}
       propertyPath: canMove

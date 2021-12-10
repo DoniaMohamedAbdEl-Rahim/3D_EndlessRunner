@@ -48,6 +48,19 @@ public class UIController : MonoBehaviour
         if (lifes == 0)
             GameOver();
     }
+    public void Healing(int amount)
+    {
+        if (lifes < 3)
+        {
+            playerLifes[lifes].gameObject.gameObject.SetActive(true);
+            lifes++;
+        }
+        else if (amount == 2 && lifes < 3)
+        {
+            playerLifes[lifes].gameObject.gameObject.SetActive(true);
+            lifes++;
+        }
+    }
     void GameOver()
     {
         StartCoroutine(ShowGameOverPanel());

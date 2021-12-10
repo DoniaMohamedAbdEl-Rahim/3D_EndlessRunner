@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 550488725407779377}
   - component: {fileID: 6301070833910699970}
   - component: {fileID: 7908079838566278002}
+  - component: {fileID: -5221012975642095202}
   m_Layer: 0
   m_Name: HealthUpX2
-  m_TagString: Untagged
+  m_TagString: Health2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-5221012975642095202
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532068967209451661}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0575593, y: 2.2138052, z: 0.4614067}
+  m_Center: {x: -0.38092688, y: 0.45904988, z: -0.23070335}

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     BoolSO canMove;
     bool isDead = false;
     AudioManager audioManager;
+    int updateSpeedFactor = 1;
     void Start()
     {
         canMove.state = true;
@@ -77,6 +78,38 @@ public class PlayerController : MonoBehaviour
                 UIController.GetComponent<UIController>().AddCoins();
                 other.gameObject.SetActive(false);
             }
+            else if (other.gameObject.tag=="Health")
+            {
+                audioManager.PlayeSound("Collect");
+                UIController.GetComponent<UIController>().Healing(1);
+                other.gameObject.SetActive(false);
+            }
+            else if (other.gameObject.tag == "Health2")
+            {
+                audioManager.PlayeSound("Collect");
+                UIController.GetComponent<UIController>().Healing(2);
+                other.gameObject.SetActive(false);
+            }
+            else if (other.gameObject.tag == "Speed")
+            {
+                audioManager.PlayeSound("Collect");
+                updateSpeedFactor = 3;
+                StartCoroutine(UpdateSpeed());
+                other.gameObject.SetActive(false);
+            }
+            else if (other.gameObject.tag == "Speed2")
+            {
+                audioManager.PlayeSound("Collect");
+                updateSpeedFactor = 6;
+                StartCoroutine(UpdateSpeed());
+                other.gameObject.SetActive(false);
+            }
+            else if (other.gameObject.tag == "Jetpack")
+            {
+                audioManager.PlayeSound("Collect");
+                StartCoroutine(UseJetPack());
+                other.gameObject.SetActive(false);
+            }
         }
     }
     void OnCollisionEnter(Collision collision)
@@ -100,6 +133,25 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         roadSpawnManager.MoveRoad();
+    }
+    IEnumerator UpdateSpeed()
+    {
+        movementSpeed += updateSpeedFactor;
+        yield return new WaitForSeconds(4f);
+        movementSpeed-=updateSpeedFactor;
+    }
+   
+    IEnumerator UseJetPack()
+    {
+        movementSpeed += 10;
+        this.transform.position = new Vector3(this.transform.position.x, 3, this.transform.position.z);
+        anim.SetBool("Fly", true);
+        rb.useGravity = false;
+        yield return new WaitForSeconds(5f);
+        movementSpeed -= 10;
+        rb.useGravity = true;
+        anim.SetBool("Fly", false);
+        this.transform.position = new Vector3(this.transform.position.x, 0, this.transform.position.z);
     }
 
 }
