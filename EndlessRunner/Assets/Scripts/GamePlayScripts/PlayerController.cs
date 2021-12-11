@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         canMove.state = true;
         rb = GetComponent<Rigidbody>();
-        audioManager = FindObjectOfType<AudioManager>(); 
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -64,7 +64,10 @@ public class PlayerController : MonoBehaviour
     void ControlPlayerMovment()
     {
         transform.Translate(Vector3.back * Time.deltaTime * movementSpeed);
-        transform.Translate(Vector3.right * -horizontalInput * Time.deltaTime * movementSpeed / 2);
+        if (horizontalInput == 1 && transform.position.x < 6)
+            transform.Translate(Vector3.left * horizontalInput * Time.deltaTime * movementSpeed / 2);
+        else if (horizontalInput == -1 && transform.position.x >-4.77f)
+            transform.Translate(Vector3.left * horizontalInput * Time.deltaTime * movementSpeed / 2);
     }
     void OnTriggerEnter(Collider other)
     {
@@ -78,7 +81,7 @@ public class PlayerController : MonoBehaviour
                 UIController.GetComponent<UIController>().AddCoins();
                 other.gameObject.SetActive(false);
             }
-            else if (other.gameObject.tag=="Health")
+            else if (other.gameObject.tag == "Health")
             {
                 audioManager.PlayeSound("Collect");
                 UIController.GetComponent<UIController>().Healing(1);
@@ -138,9 +141,9 @@ public class PlayerController : MonoBehaviour
     {
         movementSpeed += updateSpeedFactor;
         yield return new WaitForSeconds(4f);
-        movementSpeed-=updateSpeedFactor;
+        movementSpeed -= updateSpeedFactor;
     }
-   
+
     IEnumerator UseJetPack()
     {
         movementSpeed += 10;

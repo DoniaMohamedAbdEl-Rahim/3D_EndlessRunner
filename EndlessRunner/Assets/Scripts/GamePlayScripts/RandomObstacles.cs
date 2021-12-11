@@ -31,7 +31,7 @@ public class RandomObstacles : MonoBehaviour
         float z = Random.Range(player.transform.position.z + 50, player.transform.position.z + 200);
         Vector3 obstaclePosition = new Vector3(x, 0f, z);
         Instantiate(obstacle, obstaclePosition, obstacle.gameObject.transform.localRotation);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         createObstacle = true;
     }
 }

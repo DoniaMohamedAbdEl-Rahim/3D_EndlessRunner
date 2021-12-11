@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class UIController : MonoBehaviour
 {
@@ -19,14 +18,22 @@ public class UIController : MonoBehaviour
     [SerializeField]
     BoolSO canMove;
     int coins = 0;
+    [SerializeField]
+    StringSO playerName;
+    [SerializeField]
+    TMP_Text nameTxt;
+    [SerializeField]
+    TMP_Text highestScore;
+    int highestScoreNum = 0;
     void Start()
     {
-
+        nameTxt.text = playerName.str;
     }
 
     void FixedUpdate()
     {
-        UpdateScore();
+        if (canMove.state)
+            UpdateScore();
     }
     void UpdateScore()
     {
@@ -63,6 +70,11 @@ public class UIController : MonoBehaviour
     }
     void GameOver()
     {
+        if (score > PlayerPrefs.GetInt("highestScoreNum"))
+        {
+            PlayerPrefs.SetInt("highestScoreNum", score);
+            highestScore.text = $"New High Score  {PlayerPrefs.GetInt("highestScoreNum")}";
+        }
         StartCoroutine(ShowGameOverPanel());
         //Stop player movement
         canMove.state = false;
