@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,7 +12,6 @@ public class PlayerController : MonoBehaviour
     GameObject UIController;
     [SerializeField]
     float verticalVelocity;
-    float gravity = 14f;
     [SerializeField]
     float jumpForce = 250f;
     [SerializeField]
@@ -66,7 +64,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.back * Time.deltaTime * movementSpeed);
         if (horizontalInput == 1 && transform.position.x < 6)
             transform.Translate(Vector3.left * horizontalInput * Time.deltaTime * movementSpeed / 2);
-        else if (horizontalInput == -1 && transform.position.x >-4.77f)
+        else if (horizontalInput == -1 && transform.position.x > -4.77f)
             transform.Translate(Vector3.left * horizontalInput * Time.deltaTime * movementSpeed / 2);
     }
     void OnTriggerEnter(Collider other)

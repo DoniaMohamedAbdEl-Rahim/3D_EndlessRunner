@@ -28,6 +28,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         nameTxt.text = playerName.str;
+       // PlayerPrefs.DeleteAll();
     }
 
     void FixedUpdate()
@@ -62,7 +63,7 @@ public class UIController : MonoBehaviour
             playerLifes[lifes].gameObject.gameObject.SetActive(true);
             lifes++;
         }
-        else if (amount == 2 && lifes < 3)
+        if (amount == 2 && lifes < 3)
         {
             playerLifes[lifes].gameObject.gameObject.SetActive(true);
             lifes++;
@@ -73,7 +74,7 @@ public class UIController : MonoBehaviour
         if (score > PlayerPrefs.GetInt("highestScoreNum"))
         {
             PlayerPrefs.SetInt("highestScoreNum", score);
-            highestScore.text = $"New High Score  {PlayerPrefs.GetInt("highestScoreNum")}";
+            highestScore.text = $"New High Score  {PlayerPrefs.GetInt("highestScoreNum")} " + playerName.str;
         }
         StartCoroutine(ShowGameOverPanel());
         //Stop player movement
